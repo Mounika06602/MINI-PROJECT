@@ -1,9 +1,3 @@
-import os
-from fastapi import FastApi
-
-app = Fastapi(
-      title="NoTES"
-)
 
 from fastapi import FastAPI, HTTPException
 from pymongo import MongoClient
