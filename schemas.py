@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel,EmailStr
 from datetime import datetime
 from typing import Optional
 
@@ -21,3 +21,5 @@ class Notes(BaseModel):
     content: str
     Createdat: datetime
     Updatedat: datetime
+
+
