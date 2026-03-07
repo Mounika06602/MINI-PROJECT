@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SMART NOTES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <div class="login-card">
+        <div class="logo">🚀</div>
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Enter your details to sign in</p>
+        
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="login-email" placeholder="name@company.com">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="login-password" placeholder="••••••••">
+        </div>
+        <button class="login-btn" style="width:100%" onclick="login()">Sign In</button>
+        
+        <p class="footer-text" style="margin-top:20px;">
+            Don't have an account? <a href="signup.html">Create one</a>
+        </p>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        // 1. LOGIN FUNCTION
+        async function login() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const messageDiv = document.getElementById('message');
+
+            if (!email || !password) {
+                messageDiv.textContent = "Please fill in all fields.";
+                return;
+            }
+
+            try {
+                // Connects to your user_routes.py login endpoint
+                const response = await fetch('/users/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email, password: password })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    // Save user data to localStorage for account.js to use
+                    localStorage.setItem('user', JSON.stringify(result.user_data || {
+                        name: "User", 
+                        email: email, 
+                        role: "member"
+                    }));
+                    window.location.href = "dashboard.html";
+                } else {
+                    messageDiv.textContent = "Error: " + (result.detail || "Login failed");
+                    messageDiv.style.color = "red";
+                }
+            } catch (err) {
+                messageDiv.textContent = "Server connection failed.";
+                console.error(err);
+            }
+        }
+
+        // 2. SIGNUP LOGIC (Only if you keep signup on this same page)
+        // Note: It is better to move this to signup.html as per your link above
+    </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --sidebar-bg: #1e1b4b;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --bg: #f3f4f6;
+    --white: #ffffff;
+    --danger: #ef4444;
+}
+
+/* --- Global Resets --- */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text-main); }
+
+/* --- AUTH PAGES (Login/Signup) --- */
+/* Centers the login/signup card in the middle of the screen */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.logo { font-size: 40px; margin-bottom: 10px; }
+h2 { color: var(--text-main); margin: 0 0 10px 0; font-weight: 600; }
+.subtitle { color: var(--text-muted); margin-bottom: 30px; font-size: 14px; }
+
+/* --- DASHBOARD PAGE --- */
+/* Creates the Sidebar + Content side-by-side layout */
+.dashboard-page {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    flex-shrink: 0; /* Prevents the sidebar from collapsing */
+}
+
+.sidebar-brand { padding: 0 25px 30px; font-size: 24px; font-weight: 700; color: #818cf8; }
+
+.nav-link {
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #d1d5db;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #312e81;
+    color: white;
+    border-left: 4px solid var(--primary);
+}
+
+.logout-link { margin-top: auto; color: #f87171; }
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background-color: var(--bg);
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    max-width: 1000px;
+}
+
+/* --- Note Cards Grid --- */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+}
+
+.note-card {
+    background: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* --- Common Components --- */
+.form-group { text-align: left; margin-bottom: 20px; }
+.form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border 0.2s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.login-btn:hover { background-color: var(--primary-hover); }
+
+/* --- Modal Styles --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+/* Paste this into your style.css */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(rgba(30, 27, 75, 0.4), rgba(30, 27, 75, 0.4)), 
+                url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}

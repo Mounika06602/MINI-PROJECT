@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Note - SMART NOTES</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <ul class="nav-top">
+        <li><a href="dashboard.html"><i class="fas fa-chart-line"></i><span> Dashboard</span></a></li>
+        <li><a href="account.html"><i class="fas fa-user-circle"></i> <span> My Account</span></a></li>
+        <li><a href="notes.html"><i class="fas fa-box-open"></i> <span> My NOTES</span></a></li>
+        <li class="active"><a href="new_notes.html"><i class="fas fa-plus-square"></i> <span> New NOTES</span></a></li>
+      </ul>
+      <ul class="nav-bottom">
+        <li class="logout"><a href="index.html" onclick="logout()"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content">
+      <div class="main-header">
+        <h1>Create a New Note</h1>
+      </div>
+      
+      <div class="form-container">
+        <div class="input-group">
+          <label for="note-title">Note Title</label>
+          <input type="text" id="note-title" placeholder="Enter title here..." required>
+        </div>
+
+        <div class="input-group">
+          <label for="note-content">Note Content</label>
+          <textarea id="note-content" rows="10" placeholder="Type your note details..." required></textarea>
+        </div>
+
+        <div class="button-group">
+          <button class="save-btn" onclick="saveNote()">Save Note</button>
+          <button class="cancel-btn" onclick="location.href='notes.html'">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="new_notes.js"></script>
+</body>
+</html>
